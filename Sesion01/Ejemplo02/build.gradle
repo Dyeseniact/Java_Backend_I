@@ -1,0 +1,10 @@
+//plugins que son complementos que nos ayudan a agilizar la construcción de nuestros proyectos
+plugins {
+    id 'java'
+}
+
+jar {
+    manifest {
+        attributes 'Main-class': 'HelloWorldExample'
+    }
+}

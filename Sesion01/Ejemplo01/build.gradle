@@ -1,0 +1,9 @@
+//es la definición de una tarea en lenguaje Groovy, es decir, una función llamada hello
+task hello{
+    //doLast que nos permite ejecutar líneas de código en lenguaje Groovy.
+    doLast {
+        println 'Hello world!!'
+    }
+}
+
+//Se carguen las librerias primero
