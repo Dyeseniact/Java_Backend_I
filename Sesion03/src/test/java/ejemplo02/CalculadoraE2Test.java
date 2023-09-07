@@ -12,7 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class) //agregar valores antes de ejecutar la prueba
 class CalculadoraE2Test {
 
     @Mock
