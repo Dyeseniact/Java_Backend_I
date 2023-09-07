@@ -15,7 +15,7 @@ public class Calculadora {
 
     public float divide(float a, float b) throws IllegalAccessException {
         if(b == 0) {
-            throw new IllegalAccessException("No es posible dividir un valor entre 0");
+            throw new IllegalArgumentException("No es posible dividir un valor entre 0");
         }
         return a / b;
     }
