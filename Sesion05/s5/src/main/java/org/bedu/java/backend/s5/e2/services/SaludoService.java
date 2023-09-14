@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 public class SaludoService {
 
     private final SaludoComponent saludoComponent;
+    private final SaludoComponent otroSaludo;
     @Autowired
-    public SaludoService(SaludoComponent saludoComponent) {
+    public SaludoService(SaludoComponent saludoComponent, SaludoComponent otroSaludo) {
         this.saludoComponent = saludoComponent;
+        this.otroSaludo = otroSaludo;
+        System.out.println(saludoComponent == otroSaludo);
     }
 
     public String saluda() {
