@@ -1,6 +1,7 @@
 package org.bedu.java.backend.s5;
 
 import org.bedu.java.backend.s5.e1.model.Saludo;
+import org.bedu.java.backend.s5.e2.services.SaludoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class S5Application implements CommandLineRunner {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(S5Application.class, args);
 	}
+
 	// -------------- Ejemplo 1--------------------------
 
 	//Forma 1 ->
@@ -37,18 +38,29 @@ public class S5Application implements CommandLineRunner {
 
 	// Forma 3
 
-	private final Saludo saludo;
+	/*private final Saludo saludo;
 
 	@Autowired
-	public S5Application(/*@Autowired*/ Saludo saludo) {
+	public S5Application( Saludo saludo) {
 		this.saludo = saludo;
 	}
-
-
 
 	@Override
 	public void run(String... arg) throws Exception {
 		System.out.println(saludo.getNombre());
+	}*/
+
+	// *********------------ Ejemplo 02 --------------****** ///
+
+	private final SaludoService saludoService;
+
+	public S5Application(@Autowired SaludoService saludoService) {
+		this.saludoService = saludoService;
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println(saludoService.saluda());
 	}
 
 }
