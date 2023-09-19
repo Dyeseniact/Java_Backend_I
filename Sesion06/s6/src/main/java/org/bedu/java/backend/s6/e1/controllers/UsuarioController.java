@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/usuario")
 public class UsuarioController {
-    @PostMapping
+    /*@PostMapping
     public String creaUsuario(@RequestBody Usuario usuario){
         System.out.println("Creando usuario ");
         System.out.println("Nombre: " + usuario.getNombre());
@@ -17,7 +17,7 @@ public class UsuarioController {
 
         return "Usuario Creado";
 
-    }
+    }*/
 
     @PostMapping("/{id}")
     public String crearUsuario(@RequestBody Usuario usuario, @PathVariable("id") long id){
@@ -29,6 +29,18 @@ public class UsuarioController {
         System.out.println("Contraseña: " + usuario.getContrasenia());
 
         return "Usuario " + id +  " creado";
+    }
+
+    @PostMapping
+    public String creaUsuario(@RequestBody Usuario usuario, @RequestParam("id") long id, @RequestParam("rol") String rol) {
+        System.out.println("Creando usuario");
+        System.out.println("Nombre: " + usuario.getNombre());
+        System.out.println("Apellido: " + usuario.getApellido());
+        System.out.println("Usuario: " + usuario.getUsuario());
+        System.out.println("E-Mail: " + usuario.getCorreoElectronico());
+        System.out.println("Rol: " + rol);
+
+        return "Usuario " + id + " Creado";
     }
 
 }
