@@ -1,6 +1,7 @@
 package org.bedu.java.backend.s7.models;
 
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -13,11 +14,11 @@ public class Usuario {
     @Email(message = "El correo electrónico tiene un formato incorrecto.")
     private String correo;
     @NotBlank(message = "El usuario es un campo obligatorio.")
-    @Range(min=8, max=20, message = "El nombre de usuario debe tener entre 8 a 20 caracteres.")
+    @Length(min = 8, max = 20, message = "Usuario debe tener entre 8 y 20 caracteres")
     private String usuario;
-    @NotBlank(message = "La contraseña es un campo obligatorio")
+    @NotBlank(message = "La contraseña es un campo obligatorio.")
     private String contrasenia;
-    @NotBlank
+    @NotBlank(message = "El telefono es un campo obligatorio.")
     @Pattern(regexp = "^(\\d{2,4}[- .]?){2}\\d{4}$", message = "El teléfono debe tener un formato de ##-####-####")
     private String telefono;
     @NotBlank(message = "El rol del usuario es un campo obligatorio.")

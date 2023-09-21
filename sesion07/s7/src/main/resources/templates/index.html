@@ -1,38 +1,39 @@
 <!doctype html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <form th:action="@{registro}" th:object="${usuario}" method="post">
-        <div th:if="${#fields.hasAnyErrors()}">
-            <ul>
-                <li th:each="err : ${#fields.detailedErrors()}" th:text="${err.getFieldName() + err.getMessage()}"/>
-            </ul>
-        </div>
         <div>
             <label for="nombre">Nombre: </label>
             <input id="nombre" type="text" th:field="*{nombre}">
+            <div th:if="${#fields.hasErrors('nombre')}" th:errorclass="error" th:errors="*{nombre}"></div>
         </div>
         <div>
             <label for="correo">Correo: </label>
             <input id="correo" type="email" th:field="*{correo}">
+            <div th:if="${#fields.hasErrors('correo')}" th:errorclass="error" th:errors="*{correo}"></div>
         </div>
         <div>
             <label for="usuario">Usuario: </label>
             <input id="usuario" type="text" th:field="*{usuario}">
+            <div th:if="${#fields.hasErrors('usuario')}" th:errorclass="error" th:errors="*{usuario}"></div>
         </div>
         <div>
             <label for="contrasenia">Contraseña: </label>
             <input id="contrasenia" type="password" th:field="*{contrasenia}">
+            <div th:if="${#fields.hasErrors('contrasenia')}" th:errorclass="error" th:errors="*{contrasenia}"></div>
         </div>
         <div>
             <label for="telefono"> Telefono: </label>
             <input id="telefono" type="tel" th:field="*{telefono}">
+            <div th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}"></div>
            </div>
         <div>
             <label for="rol">Rol: </label>
@@ -40,6 +41,7 @@
                 <option value="admin">Administrador</option>
                 <option value="client">Cliente</option>
             </select>
+            <div th:if="${#fields.hasErrors('rol')}" th:errorclass="error" th:errors="*{rol}"></div>
         </div>
         <input type="submit" th:value="Guardar">
     </form>
